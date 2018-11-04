@@ -3,4 +3,5 @@
 [int]$val2 = $val + $val1 ;
 $val2 ;
 pause
-Test-Path 
+$Host1 = hostname
+Test-Path $Host1
