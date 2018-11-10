@@ -13,10 +13,9 @@ public int Mul(int a,int b)
 {
 return a*b;
 }
-
 }
 "@ ;
-
+Clear-Host ; 
 Add-Type -TypeDefinition $Calculator  ; #PS way
 $CalcInstance = [Calc]::new(); #CSharp way
 
@@ -30,4 +29,6 @@ $CalcInstancePS.Mul(5, 5) ;
 $CalcInstancePS.Div(1.0, 4.0) ;
 
 $CalcInstance | Get-Member ;
-$CalcInstancePS.Dispose();
+$CalcInstancePS = "" ;
+$CalcInstance = "" ;
+$Calculator = "" ;
