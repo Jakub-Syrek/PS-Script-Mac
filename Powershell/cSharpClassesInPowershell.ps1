@@ -28,3 +28,6 @@ $CalcInstance.Div(20, 4) ;
 $CalcInstancePS.Add(20, 30) ;
 $CalcInstancePS.Mul(5, 5) ;
 $CalcInstancePS.Div(1.0, 4.0) ;
+
+$CalcInstance | Get-Member ;
+$CalcInstancePS.Dispose();
