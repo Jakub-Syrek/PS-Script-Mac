@@ -17,10 +17,10 @@ return a*b;
 }
 "@ ;
 
-Add-Type -TypeDefinition $Calculator  ; #PS way
+Add-Type -TypeDefinition $Calculator  ; 
 $CalcInstance = [Calc]::new(); #CSharp way
 
-$CalcInstancePS = New-Object -TypeName Calc ;
+$CalcInstancePS = New-Object -TypeName Calc ; #PS way
 $CalcInstance.Add(20,30) ;
 $CalcInstance.Mul(5,5) ;
 $CalcInstance.Div(3,4) ;
