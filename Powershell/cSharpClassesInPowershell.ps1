@@ -32,3 +32,5 @@ $CalcInstance | Get-Member ;
 $CalcInstancePS = "" ;
 $CalcInstance = "" ;
 $Calculator = "" ;
+
+[System.GC]::GetTotalMemory(‘forcefullcollection’) | out-null
