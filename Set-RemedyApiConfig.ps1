@@ -5,6 +5,11 @@ Function Encrypt ([string]$string) {
     }
 }
 
+$scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent ;
+Write-Host $scriptDir ;
+$filebase = $PSScriptRoot ;
+Write-Host 7;
+pause ;
 Function Set-RemedyApiConfig {
 <#
 .SYNOPSIS
@@ -19,10 +24,10 @@ Function Set-RemedyApiConfig {
         [pscredential]$Credentials = (Get-Credential -UserName ($env:USERNAME).ToLower() -Message "Enter Remedy login details"),
         
         [Parameter(Mandatory=$true)]
-        [string]$APIURL,
+        [string]$APIURL = "https://remedy.hcl.com",
 
         [string]$IncidentURL,
-        [string]$Path = "$env:USERPROFILE\$env:USERNAME-RemedyApi.xml",
+        [string]$Path =   "/usr/local/bin:RemedyApi.xml" , #"$env:USERPROFILE\$env:USERNAME-RemedyApi.xml",
         [switch]$Force   
     )
 
@@ -37,5 +42,6 @@ Function Set-RemedyApiConfig {
     }
 
     $Config = New-Object -TypeName PSObject -Property $Properties 
-    $Config | Export-Clixml -Path $Path -Force
+    $Config #| Export-Clixml -Path $Path -Force
 }
+Set-RemedyApiConfig jakub.syrek

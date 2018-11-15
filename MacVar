@@ -1,0 +1,1 @@
+Get-Command | Out-File /Users/jakubsyrek/Desktop/text.txt ;
