@@ -1,0 +1,8 @@
+Function Get-Fib ($n) {
+    $current = $previous = 1;
+    while ($current -lt $n) {
+          $current;
+          $current,$previous = ($current + $previous),$current}
+    }
+$fib = Get-Fib 100;
+$fib ;

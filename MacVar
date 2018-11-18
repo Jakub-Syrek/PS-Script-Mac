@@ -1,1 +1,2 @@
 Get-Command | Out-File /Users/jakubsyrek/Desktop/text.txt ;
+Get-Command | Export-Csv /Users/jakubsyrek/Desktop/text.csv ;
