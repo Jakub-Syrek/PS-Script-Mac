@@ -1,6 +1,6 @@
 using System;
-using namespace System.Collections.Generic;
-using namespace System.Linq;
+using  System.Collections.Generic;
+using  System.Linq;
 
 Get-ChildItem -Filter *.dll -Recurse |
     ForEach-Object {
