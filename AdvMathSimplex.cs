@@ -1,6 +1,7 @@
 using System;
-
-namespace Extreme.Numerics.QuickStart.CSharp
+using Extreme.Mathematics.Optimization;
+using Extreme.Mathematics;
+namespace Extreme.Numerics.QuickStart.CSharp 
 {
     // The linear programming classes reside in a namespace with
     // other optimization-related classes.

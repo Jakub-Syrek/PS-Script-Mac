@@ -1,16 +1,19 @@
 Clear-Host ;
 $stopwatch =  [system.diagnostics.stopwatch]::StartNew() ;
-Function Get-Fib ([Int64]$n) {
-    [Int64]$current = [Int64]$previous = 1;
+Function Get-Fib ([Int64]$n) 
+{
+    [bigint]$current = [bigint]$previous = 1;
     
     for ([Int64]$i = 0 ; $i -lt ($n+1) ; $i++ )
     {
-          [Int64]$current;
-          $current,$previous = ($current + $previous),$current}
+          [bigint]$current;
+          $current = $current + $previous
+          $previous = $current
     }
+}    
     function Get-Results {
         param ($n)
-        [Int64[]]$fib = Get-Fib $n;
+        [bigint[]]$fib = Get-Fib $n;
         [string]$lastNumber = $fib | Select-Object -Last 1 ;
         [string]$result = "";
         for ($i=0;$i -le 999;$i++) {
@@ -35,8 +38,11 @@ Function Get-Fib ([Int64]$n) {
     $trend += (Get-Results 1000) ; #00:00:00.2638178 first 1000 out of max 210 digits
     $trend += (Get-Results 10000) ; #00:00:00.7974904 first 1000 out of max 2090 digits
     $trend += (Get-Results 100000) ; #00:00:07.7571815 first 1000 out of max 20899 digits
-    #$trend += (Get-Results 1000000) ; #crash
+    $trend += (Get-Results 200000) ; #00:00:29.0318817 first 1000 out of max 60206 digits
+    $trend += (Get-Results 500000) ; #00:02:49.6743998 first 1000 out of max 150515 digits
     $trend ;
+    
+    
     # load the appropriate assemblies 
     #[void][Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") 
     #[void][Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms.DataVisualization")

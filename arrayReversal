@@ -1,0 +1,56 @@
+<#
+[array]$arr = @( 1,2,3,4,5,6) ;
+$arr ;
+#123456
+$length = ($arr.Count - 1);
+for ($i = 0 ; $i -le $length / 2; $i++ ) {
+[int]$tmp = $arr[$i] 
+[int]$tmp2 = $arr[$length - $i]
+$arr[$length - $i] = $tmp 
+$arr[$i] = $tmp2
+}
+$arr ;
+#654321
+[array]$tmpArr = @();
+for ($i = $length ; $i -ge 0 ; $i-- ) {
+$tmpArr += ($arr[$i])
+}
+$tmpArr ;
+#>
+#123456 
+class Array3
+{
+    [int[]]aReverse ($a)
+    {
+        $length = ($a.Count - 1);
+        for ($i = 0 ; $i -le $length / 2; $i++ ) 
+        {
+            [int]$tmp = $a[$i] 
+            [int]$tmp2 = $a[$length - $i]
+            $a[$length - $i] =  $tmp 
+            $a[$i] =  $tmp2
+        }
+        return $a ;
+    }
+    [string]sReverse ($a)
+    {
+        $a = $a.toCharArray() ; 
+        $length = $a.Count - 1 ;
+        [string]$c = "" ;
+        for ($i=$length; $i -ge 0 ; $i--) {
+            $c += $a[$i]
+        }
+        return $c ;
+    }
+}
+[array]$b = @( 1,2,3,4,5,6) ;
+$arr = [Array3]::new().aReverse($b) ;
+$arr ;
+#654321
+$arr = [Array3]::new().aReverse($arr);
+$arr ;
+#123456
+[string]$c = $arr;
+$arr = [Array3]::new().sReverse($c) ;
+$arr ;
+#6 5 4 3 2 1
